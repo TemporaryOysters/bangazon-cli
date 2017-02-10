@@ -15,3 +15,8 @@ class PaymentType():
         """
         self.payment_type = payment_type
         self.account_number = account_number
+
+    def get_payment_type(self):
+        """returns the selected payment type"""
+        return self.payment_type
+
