@@ -12,7 +12,8 @@ class TestCompleteOrder(unittest.TestCase):
         self.joey = customer.Customer('Joey', '787 East Silver St', 'Lebanon', 'Ohio', '35622', '5551231234')
         self.joey_mastercard = payment_options.PaymentType("first", "last", "Mastercard", "acct1234")
         self.joeys_cart = shoppingcart.ShoppingCart("joey")
-        self.joeys_cart.add_to_cart("puppies")
+        self.puppies = products.Product("puppies", 3)
+        self.joeys_cart.add_to_cart(self.puppies)
 
 
 # test order is complete
