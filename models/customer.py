@@ -67,11 +67,20 @@ class Customer():
         """
         return self.status
 
-    def set_status(self, new_status):
+    def set_status_to_active(self):
         """
-        Set a Users Active status to True or False. 
-        True = Active User, False = Non-active User
-        Active User - Abilityto  make purchases
+        Set a Users Active status to True. 
+        True = Active User
+        Active User - Ability to make purchases
         """
-        self.status = new_status
+        self.status = True
+        return self.status
+
+    def set_status_to_inactive(self):
+        """
+        Set a Users Active status False. 
+        False = Inactive User
+        Active User - Ability to make purchases
+        """
+        self.status = False
         return self.status

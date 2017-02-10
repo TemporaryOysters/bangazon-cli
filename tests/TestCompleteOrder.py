@@ -20,6 +20,6 @@ class TestCompleteOrder(unittest.TestCase):
     def test_order_is_complete(self):
       # customer, payment type, products, total
 
-      self.joeysorder = complete_order.Order(self.joey, self.joey_mastercard, self.joeys_cart, self.joeys_cart.price_total)
+      self.joeysorder = complete_order.Order(self.joey, self.joey_mastercard)
 
       self.assertIsInstance(self.joeysorder, complete_order.Order)
