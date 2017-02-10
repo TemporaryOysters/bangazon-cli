@@ -13,6 +13,9 @@ class TestShoppingCart(unittest.TestCase):
         self.toy = products.Product('Tonka Truck', 2.00)
         self.richie = customer.Customer("Richie", "1234 NSS Ave", "Nashville", "TN", "37811", "9014873143")
         self.richies_cart = shoppingcart.ShoppingCart(self.richie)
+        """
+        Adding products to cart
+        """
         self.richies_cart.add_to_cart(self.battery)
         self.richies_cart.add_to_cart(self.toy)
 
@@ -28,8 +31,8 @@ class TestShoppingCart(unittest.TestCase):
         Tests to make sure the product has the correct atrributes
         author: Mark Ellis
         """
-        self.assertIsNotNone(self.battery.name)
-        self.assertIsNotNone(self.battery.price)    
+        self.assertEqual(self.battery.name, "9V Battery")
+        self.assertEqual(self.battery.price, 3.59)    
             
     def test_products_can_be_added_to_order(self):
         """
@@ -37,6 +40,7 @@ class TestShoppingCart(unittest.TestCase):
         author: Richie Van Sickle
         """
         self.assertIn(self.battery, self.richies_cart.products)
+        self.assertIn(self.toy, self.richies_cart.products)
 
     def test_can_get_total_price(self): 
         """
@@ -46,15 +50,6 @@ class TestShoppingCart(unittest.TestCase):
         """
         self.assertEqual(self.richies_cart.get_total_price(), 5.59)
 
-
-
-
-
-
-
-
-
-
-
-# if __name__ == '__main__':
-#     unittest.main()        
+"""
+python -m unittest discover -s . -p "Test*.py" -v
+"""
