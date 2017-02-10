@@ -1,13 +1,17 @@
 class PaymentType():
+    """PaymentType class allows users to create a payment option to purchase items from our CLI.
 
-    def __init__(self, first_name, last_name, payment_type, account_number):
-        self.first_name = first_name
-        self.last_name = last_name
+    Method List:
+    -__init__
+
+    Author: Trent Hand, Temporary Oysters
+    """
+
+    def __init__(self, payment_type, account_number):
+        """
+        A payment option only requires two arguments:
+        -payment_type("visa", "mastercard", "amex", etc)
+        -account_number("1234", "4556", etc)
+        """
         self.payment_type = payment_type
         self.account_number = account_number
-
-    # def get_payment_type(self):
-    #     return self.payment_type
-
-    # def get_account_number(self):
-    #     return self.account_number
