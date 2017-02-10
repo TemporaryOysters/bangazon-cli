@@ -14,7 +14,7 @@ class TestCustomer(unittest.TestCase):
 
     Argument List:  unittest.TestCase gives the unittest model knowledge on what to test.
 
-    Author: Joey Kirby, Temporary Pysters
+    Author: Joey Kirby, Temporary Oysters
     """
 
     @classmethod
