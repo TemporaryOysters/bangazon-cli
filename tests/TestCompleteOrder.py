@@ -40,7 +40,3 @@ class TestCompleteOrder(unittest.TestCase):
         self.assertIsInstance(self.joeysorder, complete_order.Order)
 
 
-
-
-
-

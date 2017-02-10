@@ -20,4 +20,4 @@ class Product():
         Returns price of particular product
         author: Mark Ellis
         """
-        return self.product_price
+        return self.price
