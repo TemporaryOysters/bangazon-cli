@@ -26,7 +26,7 @@ class TestCustomer(unittest.TestCase):
         
     def test_customer_acct_can_be_created(self):
         """
-        Sets up a Test User, "Joey", so we can TEST if our code is behaving as expected.
+        Tests Joey has been created.
         """
         self.assertIsInstance(self.joey, customer.Customer)
 
@@ -34,22 +34,24 @@ class TestCustomer(unittest.TestCase):
         """
         Tests that our users has created with the correct amount of attributes (6) & have value. 
         """
-        self.assertIsNotNone(self.joey.customer_name)
-        self.assertIsNotNone(self.joey.street_address)
-        self.assertIsNotNone(self.joey.city)
-        self.assertIsNotNone(self.joey.state)
-        self.assertIsNotNone(self.joey.postal_code)
-        self.assertIsNotNone(self.joey.phone_number)
+        self.assertEqual(self.joey.customer_name, 'Joey')
+        self.assertEqual(self.joey.street_address, '787 East Silver St')
+        self.assertEqual(self.joey.city, 'Lebanon')
+        self.assertEqual(self.joey.state, 'Ohio')
+        self.assertEqual(self.joey.postal_code, '35622')
+        self.assertEqual(self.joey.phone_number, '5551231234')
 
-    def test_customer_can_change_active_status(self):
+    def test_customer_can_change_status_to_active(self):
         """
-        Tests that customer has ability to change active status. 
+        Tests that customer has ability to change active status to True/Active. 
         """
-        self.joey.status = True
-        self.assertTrue(self.joey.status)
+        self.assertTrue(self.joey.set_status_to_active())
 
-        self.joey.status = False
-        self.assertFalse(self.joey.status)
+    def test_customer_can_change_status_to_inactive(self):
+        """
+        Tests that customer has ability to change active status to False/Inactive. 
+        """
+        self.assertFalse(self.joey.set_status_to_inactive())
 
 '''
 run in CL within the test directory to RUN TESTS. 
@@ -57,4 +59,3 @@ run in CL within the test directory to RUN TESTS.
 python -m unittest discover -s . -p "Test*.py" -v
 
 '''
-
