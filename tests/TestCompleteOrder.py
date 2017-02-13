@@ -7,8 +7,22 @@ from models import customer, payment_options, products, shoppingcart, complete_o
 
 class TestCompleteOrder(unittest.TestCase):
 
+    """
+    TestCompleteOrder tests the Order is 'complete' with the appropriate attributes.
+
+    Method List:
+    -test_order_is_complete
+
+    Argument List:  unittest.TestCase gives the unittest model knowledge on what to test.
+
+    Author: Whitney Cormack, Temporary Oysters
+    """
+
     @classmethod
     def setUp(self):
+        """
+        Sets up a Test User, "Joey", so we can test if our code is behaving as expected.
+        """
         self.joey = customer.Customer('Joey', '787 East Silver St', 'Lebanon', 'Ohio', '35622', '5551231234')
         self.joey_mastercard = payment_options.PaymentType("Mastercard", "acct1234")
         self.joeys_cart = shoppingcart.ShoppingCart("joey")
@@ -16,10 +30,14 @@ class TestCompleteOrder(unittest.TestCase):
         self.joeys_cart.add_to_cart(self.puppies)
 
 
-# test order is complete
     def test_order_is_complete(self):
-      # customer, payment type, products, total
+        """
+        Tests that our user has created an order which includes correct attributes with assigned values.
+        An Order is 'complete' when it has attributes and values for a customer, a payment type, products in cart, and cart total cost.
+        """
+        self.joeysorder = complete_order.Order(self.joey, self.joey_mastercard)
 
-      self.joeysorder = complete_order.Order(self.joey, self.joey_mastercard)
+        self.assertIsInstance(self.joeysorder, complete_order.Order)
 
-      self.assertIsInstance(self.joeysorder, complete_order.Order)
+
+
