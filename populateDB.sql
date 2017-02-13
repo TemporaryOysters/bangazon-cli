@@ -1,4 +1,3 @@
-DELETE FROM ProductPopularity;
 DELETE FROM ProductOrder;
 DELETE FROM BangOrder;
 DELETE FROM PaymentOption;
@@ -20,6 +19,7 @@ CREATE TABLE 'Customer' (
     'address' TEXT NOT NULL,
     'city' TEXT NOT NULL,
     'state' TEXT NOT NULL,
+    'postal_code' TEXT NOT NULL,
     'phone' TEXT NOT NULL,
     'email' TEXT NOT NULL
 );
