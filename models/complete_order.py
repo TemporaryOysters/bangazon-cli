@@ -11,5 +11,7 @@ class Order():
         self.customer = customer
         self.payment_type = payment_type
 
+        
+
 
 

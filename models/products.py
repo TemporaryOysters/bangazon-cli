@@ -13,7 +13,7 @@ class Product():
         Returns the name of the product
         author: Mark Ellis
         """
-        return self.product_name
+        return self.name
 
     def get_product_price(self):
         """
