@@ -32,8 +32,8 @@ class TestCompleteOrder(unittest.TestCase):
 
     def test_order_is_complete(self):
         """
-        Tests that our user has created an order with the correct amount of attributes and have value.
-        An Order is 'complete' when it has a customer, a payment type, products in cart, and cart total cost.
+        Tests that our user has created an order which includes correct attributes with assigned values.
+        An Order is 'complete' when it has attributes and values for a customer, a payment type, products in cart, and cart total cost.
         """
         self.joeysorder = complete_order.Order(self.joey, self.joey_mastercard)
 
