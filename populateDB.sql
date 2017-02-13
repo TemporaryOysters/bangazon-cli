@@ -1,15 +1,15 @@
-DELETE FROM ProductOrder;
-DELETE FROM BangOrder;
-DELETE FROM PaymentOption;
-DELETE FROM Product;
-DELETE FROM Customer; 
+-- DELETE FROM ProductOrder;
+-- DELETE FROM BangOrder;
+-- DELETE FROM PaymentOption;
+-- DELETE FROM Product;
+-- DELETE FROM Customer; 
 
-DROP VIEW IF EXISTS ProductPopularity;
-DROP TABLE IF EXISTS ProductOrder;
-DROP TABLE IF EXISTS BangOrder;
-DROP TABLE IF EXISTS PaymentOption;
-DROP TABLE IF EXISTS Product;
-DROP TABLE IF EXISTS Customer;
+-- DROP VIEW IF EXISTS ProductPopularity;
+-- DROP TABLE IF EXISTS ProductOrder;
+-- DROP TABLE IF EXISTS BangOrder;
+-- DROP TABLE IF EXISTS PaymentOption;
+-- DROP TABLE IF EXISTS Product;
+-- DROP TABLE IF EXISTS Customer;
 
 -- Uncomment above after initial tables are created --
 
