@@ -34,13 +34,6 @@ class TestCustomer(unittest.TestCase):
         """
         Tests that our users has created with the correct amount of attributes (6) & have value. 
         """
-        self.assertIsNotNone(self.joey.customer_name)
-        self.assertIsNotNone(self.joey.street_address)
-        self.assertIsNotNone(self.joey.city)
-        self.assertIsNotNone(self.joey.state)
-        self.assertIsNotNone(self.joey.postal_code)
-        self.assertIsNotNone(self.joey.phone_number)
-
         self.assertEqual(self.joey.customer_name, 'Joey')
         self.assertEqual(self.joey.street_address, '787 East Silver St')
         self.assertEqual(self.joey.city, 'Lebanon')
