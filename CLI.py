@@ -55,18 +55,18 @@ class CreateCustomer():
 
 
 # when user inputs "4", they are shown the list of bangazon products
-# class ProductMenu():
-#     def show_product_menu():
-#         print("add a product to the cart by it's corresponding number")
-#         print(" 1. product uno\n 2. product dos\n 3. product tres\n 4. done adding products\n")
+class ProductMenu():
+    def show_product_menu():
+        print("add a product to the cart by it's corresponding number")
+        print(" 1. product uno\n 2. product dos\n 3. product tres\n 4. done adding products\n")
 
-#     shopping_cart = []
+    shopping_cart = []
 
-#     def show_list():
-#         print("Here's your list:")
+    def show_list():
+        print("Here's your list:")
 
-#         for item in shopping_cart:
-#             print(item)
+        for item in shopping_cart:
+            print(item)
 
 
 #leave the app
