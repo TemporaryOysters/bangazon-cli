@@ -1,3 +1,5 @@
+import sqlite3
+
 class PaymentType():
     """PaymentType class allows users to create a payment option to purchase items from our CLI.
 
@@ -7,7 +9,7 @@ class PaymentType():
     Author: Trent Hand, Temporary Oysters
     """
 
-    def __init__(self, payment_type, account_number):
+    def __init__(self, payment_type, account_number, customer):
         """
         A payment option only requires two arguments:
         -payment_type("visa", "mastercard", "amex", etc)
@@ -16,8 +18,44 @@ class PaymentType():
 
         self.payment_type = payment_type
         self.account_number = account_number
+        self.customer = customer
 
     def get_payment_type(self):
         """returns the selected payment type"""
         return self.payment_type
+
+    def add_payment_type(self):
+        """
+        Adds a payment type to the database
+        """
+        with sqlite3.connect('../bangazon.db') as conn:
+            c = conn.cursor()
+            command = """
+            INSERT INTO PaymentOption
+            VALUES (null, "{}", "{}", "{}")
+            """.format(self.payment_type, self.account_number, self.customer)
+            c.execute(command)
+
+
+    def return_payment_type_from_db(self):
+        """
+        Returns a payment type from the database
+        """
+        with sqlite3.connect('bangazon.db') as dbget:
+            c = dbget.cursor()
+            command = """
+            SELECT account_number
+            FROM PaymentOption
+            WHERE account_number = {}
+            """.format(self.account_number)
+
+            try:
+                c.execute(command)
+            except:
+                return False
+
+            account_info = c.fetchall()
+
+            return True
+
 
