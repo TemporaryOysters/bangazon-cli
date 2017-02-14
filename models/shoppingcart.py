@@ -2,7 +2,7 @@ class ShoppingCart():
 
     def __init__(self, user):
         """
-        Initializes a user, an empty array of products, and 
+        Initializes a user, an empty array of products, and
         sets the price total to zero
         author: Richie Van Sickle
         """
@@ -13,7 +13,7 @@ class ShoppingCart():
     def add_to_cart(self, product):
         """
         Allows the user to add product to cart and also
-        returns the total price 
+        returns the total price
         author: Richie Van Sickle
         """
         self.products.append(product)
@@ -25,6 +25,15 @@ class ShoppingCart():
         author: Richie Van Sickle
         """
         return self.products
+
+
+    def cart_price_total(self):
+
+        for product in products:
+            self.price_total + product.price
+
+        print(price_total)
+
 
     def get_total_price(self):
         """

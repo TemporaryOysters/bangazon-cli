@@ -1,49 +1,128 @@
-#COMMAND LINE MENU - OPTIONS 1 & 2
+import sys
 
-#Author: Trent Hand, Temporary Oysters
-#empty list to hold users and a blank status to hold the information
-users = {}
-status = ""
 
-#initial menu to
-def displayMenu():
-    status = input("Are you a registered user? y/n? Press q to quit: ")
-    if status == "y":
-        #calls the oldUser() function below
-        oldUser()
-    elif status == "n":
-        #prompts the user to create a new account by calling the function below
-        newUser()
-    return status
+#print main menu for user to navigate through app
+def print_main_menu():
+    print("""
+        *********************************************************
+        ** Welcome to Bangazon! Command Line Ordering System **
+        *********************************************************
+        Please choose a corresponding number of where you would like to navigate & then press Enter
+        1. Create a customer account
+        2. Choose active customer
+        3. Create a payment option
+        4. Add product to shopping cart
+        5. Complete an order
+        6. See product popularity
+        7. Leave Bangazon!
+    """)
 
-def newUser():
-    createLogin = input("Create login name: ")
 
-    if createLogin in users: # check if login name exists
-        print("\nLogin name already exist!\n")
-        #these inputs will need to be passed into a Customer object from customer.py
-    else:
-        createPassw = input("Create password: ")
+
+
+#initial menu to create customer account
+class CreateCustomer():
+    #empty list to hold users and a blank status to hold the information
+    #Author: Trent Hand, Temporary Oysters
+    #empty list to hold users and a blank status to hold the information
+    users = {}
+    status = ""
+
+    def newUser():
+        print("press 'CTRL+C' to quit")
         createName = input("Enter Customer name: ")
         createAddress = input("Enter Street Address: ")
         createCity = input("Enter City: ")
         createState = input("Enter State: ")
         createPostalCode = input("Enter Postal Code: ")
         createPhoneNumber = input("Enter Phone Number: ")
-        users[createLogin] = createPassw # add login and password
 
         print("\nUser created!\n")
+        #ADD THE METHOD TO BRING UP MAIN MENU
+        print_main_menu()
 
-def oldUser():
-    login = input("Enter login name: ")
-    passw = input("Enter password: ")
+        """ what does this line below mean? """
+        # status = newUser()
 
-    # check if user exists and login matches password
-    if login in users and users[login] == passw:
-        print("\nLogin successful!\n")
+
+
+
+# when user inputs "4", they are shown the list of bangazon products
+class ProductMenu():
+    def show_product_menu():
+        print("add a product to the cart by it's corresponding number")
+        print(" 1. product uno\n 2. product dos\n 3. product tres\n 4. done adding products\n")
+
+    shopping_cart = []
+
+    def show_list():
+        print("Here's your list:")
+
+        for item in shopping_cart:
+            print(item)
+
+
+#leave the app
+def leave_bangazon():
+    sys.exit("Thank you for visiting Bangazon!")
+
+
+
+# main menu navigation
+## start
+print_main_menu()
+
+while True:
+    nav_item = input("< ")
+
+    if nav_item == "1":
+        CreateCustomer.newUser()
+        continue
+    elif nav_item == "2":
+        print("choose active customer")
+        continue
+    elif nav_item == "3":
+        print("create a payment option")
+        continue
+    elif nav_item == "4":
+        ProductMenu.show_product_menu()
+        continue
+    elif nav_item == "5":
+        print("you pressed 5 - complete an order")
+        continue
+    elif nav_item == "6":
+        print("you pressed 6 - show product popularity")
+        continue
+    elif nav_item == "7":
+        leave_bangazon()
     else:
-        print("\nUser doesn't exist or wrong password!\n")
+        print_main_menu()
 
-while status != "q":
-#keeps the user in the program until they type "q"
-    status = displayMenu()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
