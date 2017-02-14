@@ -1,4 +1,5 @@
 import sys
+import
 
 
 #print main menu for user to navigate through app
@@ -67,10 +68,30 @@ def leave_bangazon():
     sys.exit("Thank you for visiting Bangazon!")
 
 
+#create payment
+def createPayment():
+
+    print(
+        "\n"
+        "******************************* \n"
+        "**  Create a Payment Option  ** \n"
+        "******************************* \n"
+        )
+
+    print("\nEnter Payment Type (e.g. AmEx, Visa, Checking)")
+    payment_type = str(input(">"))
+
+    print("\nEnter Account Number")
+    acct_number = str(input(">"))
+
+
+
+
 
 # main menu navigation
 ## start
-print_main_menu()
+if __name__ == '__main__':
+    print_main_menu()
 
 while True:
     nav_item = input("< ")
@@ -83,6 +104,7 @@ while True:
         continue
     elif nav_item == "3":
         print("create a payment option")
+        PaymentType.add_payment_type()
         continue
     elif nav_item == "4":
         ProductMenu.show_product_menu()
