@@ -1,5 +1,12 @@
 import sys
 
+# sys.path.append('../')
+from models.payment_options import PaymentType
+from models.customer import Customer
+from models.complete_order import Order
+from models.products import Product
+from models.shoppingcart import ShoppingCart
+
 
 #print main menu for user to navigate through app
 def print_main_menu():
@@ -68,9 +75,11 @@ def leave_bangazon():
 
 
 
+
 # main menu navigation
 ## start
-print_main_menu()
+if __name__ == '__main__':
+    print_main_menu()
 
 while True:
     nav_item = input("< ")
@@ -83,6 +92,7 @@ while True:
         continue
     elif nav_item == "3":
         print("create a payment option")
+        PaymentType.createPayment()
         continue
     elif nav_item == "4":
         ProductMenu.show_product_menu()
