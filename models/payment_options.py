@@ -15,6 +15,7 @@ class PaymentType():
         -payment_type("visa", "mastercard", "amex", etc)
         -account_number("1234", "4556", etc)
         """
+
         self.payment_type = payment_type
         self.account_number = account_number
         self.customer = customer
