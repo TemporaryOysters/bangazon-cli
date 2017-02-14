@@ -2,6 +2,10 @@ import sys
 
 # sys.path.append('../')
 from models.payment_options import PaymentType
+from models.customer import Customer
+from models.complete_order import Order
+from models.products import Product
+from models.shoppingcart import ShoppingCart
 
 
 #print main menu for user to navigate through app
