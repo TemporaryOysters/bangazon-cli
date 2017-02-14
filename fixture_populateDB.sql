@@ -1,11 +1,12 @@
-INSERT INTO Customer VALUES (null, 'Jim Dandy', '2020 Kanye St', 'Los Angeles', 'WI', '37214', '608-555-1212', 'a@a');
-INSERT INTO Customer VALUES (null, 'Venus Wilson', '100 Backhand', 'East Nashville', 'TN', '37211', '615-344-2900', 'b@b');
-INSERT INTO Customer VALUES (null, 'Larry Lizard', '999 Hot St.', 'Cincinatti', 'OH', '45000', '657-123-4567', 'c@c');
-INSERT INTO Customer VALUES (null, 'Betty Boop', '4 Valentine Ln', 'Las Vegas', 'NV', '88888', '720-222-3800', 'd@d');
+INSERT INTO Customer VALUES (null, 'Jim Dandy', '2020 Kanye St', 'Los Angeles', 'WI', '37214', '608-555-1212', 'a@a', 0);
+INSERT INTO Customer VALUES (null, 'Venus Wilson', '100 Backhand', 'East Nashville', 'TN', '37211', '615-344-2900', 'b@b', 0);
+INSERT INTO Customer VALUES (null, 'Larry Lizard', '999 Hot St.', 'Cincinatti', 'OH', '45000', '657-123-4567', 'c@c', 0);
+INSERT INTO Customer VALUES (null, 'Betty Boop', '4 Valentine Ln', 'Las Vegas', 'NV', '88888', '720-222-3800', 'd@d', 0);
 
-INSERT INTO PaymentOption VALUES (null, 'Visa', '1234123412341234');
-INSERT INTO PaymentOption VALUES (null, 'MasterCard', '4312431243124312');
-INSERT INTO PaymentOption VALUES (null, 'Discover', '9876987698769876');
+INSERT INTO PaymentOption VALUES (null, 'Visa', '1234123412341234', 1);
+INSERT INTO PaymentOption VALUES (null, 'MasterCard', '4312431243124312', 2);
+INSERT INTO PaymentOption VALUES (null, 'Discover', '9876987698769876', 3);
+INSERT INTO PaymentOption VALUES (null, 'Capital One', '9876987612341234', 4);
 
 
 INSERT INTO BangOrder VALUES (null, 1, 1);

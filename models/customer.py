@@ -10,13 +10,14 @@ class Customer():
     - get_state
     - get_postal_code
     - get_phone_number
+    - get_email
     - get_status
     - set_status(self, new_status):
 
     Author: Joey Kirby, Temporary Oysters
     """
 
-    def __init__(self, customer_name, street_address, city, state, postal_code, phone_number):
+    def __init__(self, customer_name, street_address, city, state, postal_code, phone_number, email):
         """
         A new customer is created with required arguments.
 
@@ -27,6 +28,8 @@ class Customer():
         - state
         - postal_code
         - phone_number
+        - email
+        - status
         """
         self.customer_name = customer_name 
         self.street_address = street_address
@@ -34,7 +37,8 @@ class Customer():
         self.state = state
         self.postal_code = postal_code
         self.phone_number = phone_number
-        self.status = False
+        self.email = email
+        self.status = 0
 
     def get_customer_name(self):
         """ Returns a customer's name """
@@ -60,6 +64,10 @@ class Customer():
         """ Returns a customer's phone number """
         return self.phone_number
 
+    def get_email(self):
+        """ Returns a customer's phone number """
+        return self.email
+
     def get_status(self):
         """
         Returns a customer's active status. True = Active User, False = Non-active User
@@ -73,7 +81,7 @@ class Customer():
         True = Active User
         Active User - Ability to make purchases
         """
-        self.status = True
+        self.status = 1
         return self.status
 
     def set_status_to_inactive(self):
@@ -82,5 +90,5 @@ class Customer():
         False = Inactive User
         Active User - Ability to make purchases
         """
-        self.status = False
+        self.status = 0
         return self.status

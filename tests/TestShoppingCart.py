@@ -11,7 +11,7 @@ class TestShoppingCart(unittest.TestCase):
         """
         self.battery = products.Product('9V Battery', 3.59)
         self.toy = products.Product('Tonka Truck', 2.00)
-        self.richie = customer.Customer("Richie", "1234 NSS Ave", "Nashville", "TN", "37811", "9014873143")
+        self.richie = customer.Customer("Richie", "1234 NSS Ave", "Nashville", "TN", "37811", "9014873143", 1)
         self.richies_cart = shoppingcart.ShoppingCart(self.richie)
         """
         Adding products to cart

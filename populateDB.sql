@@ -21,7 +21,8 @@ CREATE TABLE 'Customer' (
     'state' TEXT NOT NULL,
     'postal_code' TEXT NOT NULL,
     'phone' TEXT NOT NULL,
-    'email' TEXT NOT NULL
+    'email' TEXT NOT NULL,
+    'status' INTEGER NOT NULL
 );
 
 CREATE TABLE 'Product' (
@@ -33,7 +34,9 @@ CREATE TABLE 'Product' (
 CREATE TABLE 'PaymentOption' (
     'payment_optionId' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     'payment_type' TEXT NOT NULL,
-    'account_number' 
+    'account_number' TEXT NOT NULL,
+    'customer' INTEGER NOT NULL,
+        FOREIGN KEY('customer') REFERENCES 'Customer'('customerId')    
 );
 
 CREATE TABLE 'BangOrder' (
