@@ -59,3 +59,19 @@ class PaymentType():
             return True
 
 
+    #create payment
+    def createPayment():
+
+        print(
+            "\n"
+            "******************************* \n"
+            "**  Create a Payment Option  ** \n"
+            "******************************* \n"
+            )
+
+        print("\nEnter Payment Type (e.g. AmEx, Visa, Checking)")
+        payment_type = str(input(">"))
+
+        print("\nEnter Account Number")
+        acct_number = str(input(">"))
+

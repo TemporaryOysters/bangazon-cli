@@ -1,5 +1,7 @@
 import sys
-import
+
+# sys.path.append('../')
+from models.payment_options import PaymentType
 
 
 #print main menu for user to navigate through app
@@ -49,41 +51,23 @@ class CreateCustomer():
 
 
 # when user inputs "4", they are shown the list of bangazon products
-class ProductMenu():
-    def show_product_menu():
-        print("add a product to the cart by it's corresponding number")
-        print(" 1. product uno\n 2. product dos\n 3. product tres\n 4. done adding products\n")
+# class ProductMenu():
+#     def show_product_menu():
+#         print("add a product to the cart by it's corresponding number")
+#         print(" 1. product uno\n 2. product dos\n 3. product tres\n 4. done adding products\n")
 
-    shopping_cart = []
+#     shopping_cart = []
 
-    def show_list():
-        print("Here's your list:")
+#     def show_list():
+#         print("Here's your list:")
 
-        for item in shopping_cart:
-            print(item)
+#         for item in shopping_cart:
+#             print(item)
 
 
 #leave the app
 def leave_bangazon():
     sys.exit("Thank you for visiting Bangazon!")
-
-
-#create payment
-def createPayment():
-
-    print(
-        "\n"
-        "******************************* \n"
-        "**  Create a Payment Option  ** \n"
-        "******************************* \n"
-        )
-
-    print("\nEnter Payment Type (e.g. AmEx, Visa, Checking)")
-    payment_type = str(input(">"))
-
-    print("\nEnter Account Number")
-    acct_number = str(input(">"))
-
 
 
 
@@ -104,7 +88,7 @@ while True:
         continue
     elif nav_item == "3":
         print("create a payment option")
-        PaymentType.add_payment_type()
+        PaymentType.createPayment()
         continue
     elif nav_item == "4":
         ProductMenu.show_product_menu()
