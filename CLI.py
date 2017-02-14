@@ -1,4 +1,24 @@
-#COMMAND LINE MENU - OPTIONS 1 & 2
+#COMMAND LINE INTERFACE
+
+#print main menu for user to navigate through app
+def print_main_menu():
+    print("""
+        *********************************************************
+        ** Welcome to Bangazon! Command Line Ordering System **
+        *********************************************************
+        Please choose a corresponding number of where you would like to navigate & then press Enter
+        1. Create a customer account
+        2. Log into my account
+        3. Create a payment option
+        4. Add product to shopping cart
+        5. Complete an order
+        6. See product popularity
+        7. Leave Bangazon!
+    """)
+
+
+
+
 
 #Author: Trent Hand, Temporary Oysters
 #empty list to hold users and a blank status to hold the information
@@ -6,7 +26,7 @@ users = {}
 status = ""
 
 #initial menu to
-def displayMenu():
+def print_user_menu():
     status = input("Are you a registered user? y/n? Press q to quit: ")
     if status == "y":
         #calls the oldUser() function below
@@ -46,4 +66,11 @@ def oldUser():
 
 while status != "q":
 #keeps the user in the program until they type "q"
-    status = displayMenu()
+    status = print_user_menu()
+
+
+
+
+
+
+
