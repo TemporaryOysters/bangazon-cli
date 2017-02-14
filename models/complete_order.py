@@ -1,46 +1,82 @@
+import sqlite3
+
 class Order():
-    def __init__(self, customer, payment_type):
+    def __init__(self):
 
         """
         Stores a single instance of relationship between
         :model:`customer`, :model:`payment_type`
-
         author: Whitney Cormack, Temporary Oysters
-        # customer, payment type, order status
+        # customer, payment type
         """
-        self.customer = customer
-        self.payment_type = payment_type
-        self.order_status = False
-
+        self.customer = self.retrieve_active_customer_from_db();
+        self.payment_type = self.retrieve_payment_type_from_db();
 
     def get_customer(self):
-        """
-        returns customer information
-        """
         return self.customer
 
     def get_payment_type(self):
-        """
-        returns payment information
-        """
         return self.payment_type
 
-    def get_order_status(self):
-        """
-        returns order status
-        False = not a complete order
-        """
-        return self.order_status
+    def retrieve_active_customer_from_db(self):
+        with sqlite3.connect('../bangazon.db') as roncon:
+            cursor = roncon.cursor()
 
-    def order_status_is_complete(self):
-        """
-        set order status
-        True = complete order
-        """
-        self.order_status = True
-        return self.order_status
+            cursor.execute("""
+                SELECT * FROM Customer
+                WHERE status = 1
+            """)
+            selected_customer = cursor.fetchone()
+            # print("$$$$$$$$$$$$ selected_customer", selected_customer)
+            return selected_customer[0]
 
-        
+    def retrieve_payment_type_from_db(self):
+        with sqlite3.connect('../bangazon.db') as roncon:
+            cursor = roncon.cursor()
+
+            cursor.execute("""
+                SELECT * FROM PaymentOption
+                WHERE customer='{}'
+            """.format(self.get_customer()
+                ))
+            selected_payment_option = cursor.fetchall()
+            # print("****** Selected_payment_option:", selected_payment_option, self.get_customer())
+            if len(selected_payment_option) > 0:
+                return selected_payment_option[0][0]
+            else:
+                return False
+            
+
+    def add_order_to_db(self, order):
+        if order.is_order_in_db(order):
+            print("customer is already registered")
+        else:
+            with sqlite3.connect('../bangazon.db') as roncon:
+                cursor = roncon.cursor()
+
+                try: 
+                    cursor.execute("""
+                    INSERT INTO BangOrder VALUES (null, '{}', '{}')
+                    """.format( 
+                                order.get_customer(),
+                                order.get_payment_type()
+                                ))
+                except sqlite3.OperationalError:
+                    print("Error")
 
 
+    def is_order_in_db(self, order):
+        with sqlite3.connect('../bangazon.db') as llamaRama:
+            cursor = llamaRama.cursor()
 
+            cursor.execute("""
+                SELECT * FROM BangOrder
+                WHERE customer='{}'
+                AND payment_option='{}'
+            """.format(order.get_customer(),
+                       order.get_payment_type()))
+            selected_order = cursor.fetchall()
+            if len(selected_order) > 0:
+                return True
+            else:
+                False
