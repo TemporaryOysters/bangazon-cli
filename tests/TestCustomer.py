@@ -22,7 +22,7 @@ class TestCustomer(unittest.TestCase):
         """
         Sets up a Test User, "Joey", so we can TEST if our code is behaving as expected.
         """
-        self.joey = customer.Customer('Joey', '787 East Silver St', 'Lebanon', 'Ohio', '35622', '5551231234')
+        self.joey = customer.Customer('Joey', '787 East Silver St', 'Lebanon', 'Ohio', '35622', '5551231234', 'j@j')
         
     def test_customer_acct_can_be_created(self):
         """
