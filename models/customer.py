@@ -98,6 +98,14 @@ class Customer():
         False = Inactive User
         Active User - Ability to make purchases
         """
+        with sqlite3.connect('../bangazon.db') as conn:
+            cursor = conn.cursor()
+
+            cursor.execute("""
+                UPDATE Customer
+                SET status=0
+                WHERE name='{}'
+            """.format(self.get_customer_name()))     
         self.status = 0
         return self.status
 

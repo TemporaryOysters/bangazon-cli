@@ -34,9 +34,6 @@ class TestCustomer(unittest.TestCase):
         self.joey.register_customer(self.joey)
         self.assertTrue(self.joey.customer_is_registered(self.joey))
 
-    def test_customer_status_can_be_updated_in_db(self):
-        self.joey.set_status_to_active()
-
     def test_customer_has_correct_attributes(self):
         """
         Tests that our users has created with the correct amount of attributes (6) & have value. 
