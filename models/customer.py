@@ -81,7 +81,7 @@ class Customer():
         True = Active User
         Active User - Ability to make purchases
         """
-        with sqlite3.connect('../bangazon.db') as conn:
+        with sqlite3.connect('bangazon.db') as conn:
             cursor = conn.cursor()
 
             cursor.execute("""
@@ -98,7 +98,7 @@ class Customer():
         0 = Inactive User
         Active User - Ability to make purchases
         """
-        with sqlite3.connect('../bangazon.db') as conn:
+        with sqlite3.connect('bangazon.db') as conn:
             cursor = conn.cursor()
 
             cursor.execute("""
@@ -141,15 +141,13 @@ class Customer():
         with sqlite3.connect('bangazon.db') as llamaRama:
             cursor = llamaRama.cursor()
 
-            try:
-                cursor.execute("""
-                    SELECT * FROM Customer
-                    WHERE name='{}'
-                """.format(user.get_customer_name()))
-                selected_customer = cursor.fetchall()
-                if len(selected_customer) > 0:
-                    return True
-                else:
-                    False
-            except sqlite3.OperationalError:
-               print("ERROR")
+
+            cursor.execute("""
+                SELECT * FROM Customer
+                WHERE name='{}'
+            """.format(user.get_customer_name()))
+            selected_customer = cursor.fetchall()
+            if len(selected_customer) > 0:
+                return True
+            else:
+                False

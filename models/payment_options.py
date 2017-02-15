@@ -41,7 +41,7 @@ class PaymentType():
         """
         Returns a payment type from the database
         """
-        with sqlite3.connect('bangazon.db') as dbget:
+        with sqlite3.connect('../bangazon.db') as dbget:
             c = dbget.cursor()
             command = """
             SELECT account_number
