@@ -26,15 +26,6 @@ class ShoppingCart():
         """
         return self.products
 
-
-    def cart_price_total(self):
-
-        for product in products:
-            self.price_total + product.price
-
-        print(price_total)
-
-
     def get_total_price(self):
         """
         Returns the total price

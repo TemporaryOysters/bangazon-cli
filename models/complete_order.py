@@ -13,12 +13,15 @@ class Order():
         self.payment_type = self.retrieve_payment_type_from_db();
 
     def get_customer(self):
+        """ returns active customer on order """
         return self.customer
 
     def get_payment_type(self):
+        """ returns active customer's payment on order """
         return self.payment_type
 
     def retrieve_active_customer_from_db(self):
+        """ returns active customer on order which will be set to self.customer """
         with sqlite3.connect('../bangazon.db') as roncon:
             cursor = roncon.cursor()
 
@@ -31,6 +34,7 @@ class Order():
             return selected_customer[0]
 
     def retrieve_payment_type_from_db(self):
+        """ returns customer's payment type on order """
         with sqlite3.connect('../bangazon.db') as roncon:
             cursor = roncon.cursor()
 
@@ -48,6 +52,11 @@ class Order():
             
 
     def add_order_to_db(self, order):
+        """ 
+        Adds order to DB
+        w/ 
+        customerId & payment_typeId
+        """
         if order.is_order_in_db(order):
             print("customer is already registered")
         else:
@@ -66,6 +75,11 @@ class Order():
 
 
     def is_order_in_db(self, order):
+        """ 
+        Checks if Order has already been created in DB by customerId & payment_typeId
+        &
+        Returns True or False
+        """
         with sqlite3.connect('../bangazon.db') as llamaRama:
             cursor = llamaRama.cursor()
 

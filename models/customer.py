@@ -94,8 +94,8 @@ class Customer():
 
     def set_status_to_inactive(self):
         """
-        Set a Users Active status False. 
-        False = Inactive User
+        Set a Users Active status 0 (False). 
+        0 = Inactive User
         Active User - Ability to make purchases
         """
         with sqlite3.connect('../bangazon.db') as conn:
@@ -110,6 +110,9 @@ class Customer():
         return self.status
 
     def register_customer(self, user):
+        """
+        Registers customer and stores info into DB.
+        """
         if user.customer_is_registered(user):
             print("customer is already registered")
         else:
@@ -134,6 +137,9 @@ class Customer():
 
 
     def customer_is_registered(self, user):
+        """
+        Checks DB to see if User is already registered / stored in DB.
+        """
         with sqlite3.connect('../bangazon.db') as llamaRama:
             cursor = llamaRama.cursor()
 
