@@ -1,4 +1,5 @@
 import sys
+import sqlite3
 
 # sys.path.append('../')
 from models.payment_options import PaymentType
@@ -43,8 +44,13 @@ class CreateCustomer():
         createState = input("Enter State: ")
         createPostalCode = input("Enter Postal Code: ")
         createPhoneNumber = input("Enter Phone Number: ")
+        createEmail = input("Enter Email: ")
 
         print("\nUser created!\n")
+
+        new_user = Customer(createName, createAddress, createCity, createState, createPostalCode, createPhoneNumber, createEmail)
+        
+        new_user.register_customer(new_user)
         #ADD THE METHOD TO BRING UP MAIN MENU
         print_main_menu()
 
