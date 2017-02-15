@@ -1,12 +1,7 @@
 import sys
 
-# sys.path.append('../')
-from models.payment_options import PaymentType
-from models.customer import Customer
-from models.complete_order import Order
-from models.products import Product
-from models.shoppingcart import ShoppingCart
-
+sys.path.append('../')
+from models import customer
 
 #print main menu for user to navigate through app
 def print_main_menu():
@@ -43,8 +38,12 @@ class CreateCustomer():
         createState = input("Enter State: ")
         createPostalCode = input("Enter Postal Code: ")
         createPhoneNumber = input("Enter Phone Number: ")
+        createEmail = input("Enter Email: ")
 
         print("\nUser created!\n")
+
+        new_user = customer.Customer(createName, createAddress, createCity, createState, createPostalCode, createPhoneNumber, createEmail)
+        new_user.register_customer(new_user)
         #ADD THE METHOD TO BRING UP MAIN MENU
         print_main_menu()
 
