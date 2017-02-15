@@ -81,7 +81,7 @@ class Customer():
         True = Active User
         Active User - Ability to make purchases
         """
-        with sqlite3.connect('../bangazon.db') as conn:
+        with sqlite3.connect('bangazon.db') as conn:
             cursor = conn.cursor()
 
             cursor.execute("""
@@ -98,7 +98,7 @@ class Customer():
         0 = Inactive User
         Active User - Ability to make purchases
         """
-        with sqlite3.connect('../bangazon.db') as conn:
+        with sqlite3.connect('bangazon.db') as conn:
             cursor = conn.cursor()
 
             cursor.execute("""
@@ -113,45 +113,41 @@ class Customer():
         """
         Registers customer and stores info into DB.
         """
+        print("****** USER OBJ", user)
         if user.customer_is_registered(user):
-            print("customer is already registered")
+            print("Customer is already registered")
         else:
-            with sqlite3.connect('../bangazon.db') as roncon:
+            with sqlite3.connect('bangazon.db') as roncon:
                 cursor = roncon.cursor()
 
-                try: 
-                    cursor.execute("""
-                    INSERT INTO Customer VALUES (null, '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')
-                    """.format( 
-                                user.get_customer_name(),
-                                user.get_street_address(),
-                                user.get_city(),
-                                user.get_state(),
-                                user.get_postal_code(),
-                                user.get_phone_number(),
-                                user.get_email(),
-                                user.get_status()
-                                ))
-                except sqlite3.OperationalError:
-                    print("Error")
+                cursor.execute("""
+                INSERT INTO Customer VALUES (null, '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')
+                """.format( 
+                            user.get_customer_name(),
+                            user.get_street_address(),
+                            user.get_city(),
+                            user.get_state(),
+                            user.get_postal_code(),
+                            user.get_phone_number(),
+                            user.get_email(),
+                            user.get_status()
+                            ))
 
 
     def customer_is_registered(self, user):
         """
         Checks DB to see if User is already registered / stored in DB.
         """
-        with sqlite3.connect('../bangazon.db') as llamaRama:
+        with sqlite3.connect('bangazon.db') as llamaRama:
             cursor = llamaRama.cursor()
 
-            try:
-                cursor.execute("""
-                    SELECT * FROM Customer
-                    WHERE name='{}'
-                """.format(user.get_customer_name()))
-                selected_customer = cursor.fetchall()
-                if len(selected_customer) > 0:
-                    return True
-                else:
-                    False
-            except sqlite3.OperationalError:
-               print("ERROR")
+
+            cursor.execute("""
+                SELECT * FROM Customer
+                WHERE name='{}'
+            """.format(user.get_customer_name()))
+            selected_customer = cursor.fetchall()
+            if len(selected_customer) > 0:
+                return True
+            else:
+                False

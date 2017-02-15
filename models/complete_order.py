@@ -63,15 +63,12 @@ class Order():
             with sqlite3.connect('../bangazon.db') as roncon:
                 cursor = roncon.cursor()
 
-                try: 
-                    cursor.execute("""
-                    INSERT INTO BangOrder VALUES (null, '{}', '{}')
-                    """.format( 
-                                order.get_customer(),
-                                order.get_payment_type()
-                                ))
-                except sqlite3.OperationalError:
-                    print("Error")
+                cursor.execute("""
+                INSERT INTO BangOrder VALUES (null, '{}', '{}')
+                """.format( 
+                            order.get_customer(),
+                            order.get_payment_type()
+                            ))
 
 
     def is_order_in_db(self, order):
