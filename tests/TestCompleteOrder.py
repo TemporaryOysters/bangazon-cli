@@ -23,7 +23,7 @@ class TestCompleteOrder(unittest.TestCase):
         self.joe = customer.Customer('Joe llama', '787 Mulberry St', 'Nashville', 'TN', '35622', '5551231234', 'jllama@j.com')
         self.joe.register_customer(self.joe)
         self.joe.set_status_to_active()
-        self.joe_mastercard = payment_options.PaymentType("Mastercard", "1234", 5)
+        self.joe_mastercard = payment_options.PaymentType("Mastercard", "1234")
         self.joe_mastercard.add_payment_type()
         self.joes_cart = shoppingcart.ShoppingCart("joe")
         self.puppies = products.Product("puppies", 3)
