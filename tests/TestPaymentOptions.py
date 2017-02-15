@@ -22,7 +22,7 @@ class TestPaymentOptions(unittest.TestCase):
         """Sets up a test payment option "payment" so we can TEST if our code will add the payment option.
         """
 
-        self.payment = payment_options.PaymentType("visa", "1234", 1)
+        self.payment = payment_options.PaymentType("visa", "1234")
 
         """
         Tests that "payment" is an Instance of PaymentType
@@ -52,7 +52,7 @@ class TestPaymentOptions(unittest.TestCase):
     Author: Mark Ellis, Temporary Oysters
     """
     def test_payment_type_can_be_added_to_database(self):
-        self.test_type = payment_options.PaymentType("MC", "1234567890123456", 4)
+        self.test_type = payment_options.PaymentType("MC", "1234567890123456")
         self.test_type.add_payment_type()
         self.assertTrue(self.test_type.return_payment_type_from_db)
 
